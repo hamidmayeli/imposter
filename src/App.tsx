@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NewPage from './pages/NewPage';
+import NewGame from './pages/NewGame';
+import Play from './pages/Play';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<NewPage />} />
+        <Route path="/" element={<NewGame />} />
+        <Route path="/play" element={<Play />} />
       </Routes>
     </Router>
   );
