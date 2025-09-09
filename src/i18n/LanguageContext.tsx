@@ -11,7 +11,13 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  function detectDefaultLanguage(): Language {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz && tz.startsWith('Asia/Tehran')) return 'fa';
+    return 'en';
+  }
+
+  const [language, setLanguage] = useState<Language>(detectDefaultLanguage());
 
   React.useEffect(() => {
     const dir = languages[language].direction || 'ltr';

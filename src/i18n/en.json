@@ -5,5 +5,12 @@
   "start": "Start Game",
   "newGame": "New Game",
   "categories": "Categories",
-  "allCategories": "All Categories"
+  "allCategories": "All Categories",
+  "player": "Player",
+  "tapToReveal": "Tap to reveal",
+  "spyText": "You are the SPY",
+  "timer": "Timer",
+  "nextRound": "Next Round",
+  "wordsUsed": "Words used",
+  "language": "Language"
 }

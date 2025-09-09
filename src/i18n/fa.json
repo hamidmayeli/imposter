@@ -5,5 +5,12 @@
   "start": "شروع بازی",
   "newGame": "بازی جدید",
   "categories": "دسته‌بندی‌ها",
-  "allCategories": "همه دسته‌بندی‌ها"
+  "allCategories": "همه دسته‌بندی‌ها",
+  "player": "بازیکن",
+  "tapToReveal": "برای نمایش لمس کنید",
+  "spyText": "شما جاسوس هستید",
+  "timer": "تایمر",
+  "nextRound": "دور بعدی",
+  "wordsUsed": "تعداد کلمات استفاده شده",
+  "language": "زبان"
 }
