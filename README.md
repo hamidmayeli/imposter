@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Imposter - Spy Party Game
 
-Currently, two official plugins are available:
+Imposter is a Progressive Web App (PWA) for playing the classic spy party game with friends. Built with React, TypeScript, Vite, and Tailwind CSS, it supports both English and Farsi languages and works offline.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Game Description
 
-## Expanding the ESLint configuration
+Imposter is a social deduction game for 3 or more players. In each round:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- A random word is chosen from selected categories (e.g., Fruits, Animals, Jobs).
+- One player is secretly assigned as the "Spy" and does not see the word.
+- Each player, in turn, taps their card to reveal their role: either the word (if not the spy) or "You are the SPY".
+- After all players have seen their card, a timer starts for group discussion.
+- The goal is for the spy to guess the word, while others try to identify the spy.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Multi-language support (English & Farsi)
+- Dark mode UI
+- PWA: installable, offline support
+- Customizable number of players, round duration, and word categories
+- Infinite rounds with word usage tracking
+- Responsive design for mobile and desktop
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
+
+### Install & Run
+
+```bash
+pnpm install
+pnpm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm run build
 ```
+
+## How to Play
+
+1. Set the number of players and round duration.
+2. Select word categories (or use all).
+3. Start the game. Each player taps to reveal their card.
+4. The spy sees "You are the SPY"; others see the word.
+5. After all players, a timer counts down for discussion.
+6. Start the next round when ready.
+
+## Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- vite-plugin-pwa
+- vite-plugin-yaml2
+
+## License
+
+MIT
