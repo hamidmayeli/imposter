@@ -1,0 +1,121 @@
+wordGroups:
+  - category: Fruits
+    words:
+      - Apple
+      - Banana
+      - Orange
+      - Grapes
+      - Mango
+      - Pineapple
+      - Strawberry
+      - Watermelon
+      - Peach
+      - Cherry
+  - category: Animals
+    words:
+      - Dog
+      - Cat
+      - Elephant
+      - Lion
+      - Tiger
+      - Bear
+      - Wolf
+      - Fox
+      - Rabbit
+      - Horse
+  - category: Countries
+    words:
+      - USA
+      - Canada
+      - France
+      - Germany
+      - Italy
+      - Japan
+      - China
+      - Brazil
+      - India
+      - Australia
+  - category: Colors
+    words:
+      - Red
+      - Blue
+      - Green
+      - Yellow
+      - Purple
+      - Orange
+      - Pink
+      - Brown
+      - Black
+      - White
+  - category: Sports
+    words:
+      - Soccer
+      - Basketball
+      - Tennis
+      - Cricket
+      - Baseball
+      - Golf
+      - Hockey
+      - Swimming
+      - Boxing
+      - Rugby
+  - category: Jobs
+    words:
+      - Doctor
+      - Teacher
+      - Engineer
+      - Artist
+      - Chef
+      - Pilot
+      - Nurse
+      - Farmer
+      - Lawyer
+      - Police
+  - category: Vehicles
+    words:
+      - Car
+      - Bus
+      - Train
+      - Bicycle
+      - Motorcycle
+      - Airplane
+      - Boat
+      - Truck
+      - Helicopter
+      - Submarine
+  - category: Clothes
+    words:
+      - Shirt
+      - Pants
+      - Dress
+      - Skirt
+      - Jacket
+      - Shoes
+      - Hat
+      - Socks
+      - Tie
+      - Coat
+  - category: Instruments
+    words:
+      - Guitar
+      - Piano
+      - Violin
+      - Drum
+      - Flute
+      - Trumpet
+      - Saxophone
+      - Cello
+      - Harp
+      - Clarinet
+  - category: Furniture
+    words:
+      - Chair
+      - Table
+      - Sofa
+      - Bed
+      - Desk
+      - Wardrobe
+      - Shelf
+      - Stool
+      - Cupboard
+      - Dresser

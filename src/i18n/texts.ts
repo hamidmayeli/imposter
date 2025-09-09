@@ -1,5 +1,4 @@
 
-import React from 'react';
 import en from './en.json';
 import fa from './fa.json';
 import { useLanguage } from './LanguageContext';

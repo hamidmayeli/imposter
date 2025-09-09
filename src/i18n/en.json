@@ -3,5 +3,7 @@
   "players": "Number of players:",
   "duration": "Duration (minutes):",
   "start": "Start Game",
-  "newGame": "New Game"
+  "newGame": "New Game",
+  "categories": "Categories",
+  "allCategories": "All Categories"
 }
