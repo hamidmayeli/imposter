@@ -14,7 +14,7 @@ export default function HowToPlay() {
       <p className="mb-4">{t('howToPlayIntro')}</p>
 
       <h2 className="text-xl font-semibold mb-2">{t('howToPlayStepsTitle')}</h2>
-      <ol className="list-decimal pl-6 space-y-2">
+      <ol className="list-decimal ps-6 space-y-2">
         {steps.map((s, i) => (
           <li key={i}>{s}</li>
         ))}
