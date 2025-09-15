@@ -1,15 +1,19 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import NewGame from './pages/NewGame';
 import Play from './pages/Play';
-import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
-import { languages, useT } from './i18n/texts';
+import HowToPlay from './pages/HowToPlay';
+import { LanguageProvider } from './i18n/LanguageContext';
+import { useT } from './i18n/texts';
 
 
 const MenuBar: React.FC = () => {
   const t = useT();
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-gray-100 dark:bg-gray-900 border-b dark:border-gray-800">
-      <Link to="/" className="text-lg font-bold text-blue-600 dark:text-blue-400 hover:underline">{t('newGame')}</Link>
+      <div className="flex items-center gap-4">
+        <Link to="/" className="text-lg font-bold text-blue-600 dark:text-blue-400 hover:underline">{t('newGame')}</Link>
+        <Link to="/how-to-play" className="text-sm text-gray-700 dark:text-gray-300 hover:underline">{t('howToPlay')}</Link>
+      </div>
     </nav>
   );
 };
@@ -22,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<NewGame />} />
           <Route path="/play" element={<Play />} />
+          <Route path="/how-to-play" element={<HowToPlay />} />
         </Routes>
       </Router>
     </LanguageProvider>

@@ -12,5 +12,16 @@
   "timer": "Timer",
   "nextRound": "Next Round",
   "wordsUsed": "Words used",
-  "language": "Language"
+  "language": "Language",
+  "howToPlay": "How to Play",
+  "howToPlayIntro": "Imposter is a social deduction game. One player is the spy without knowing the common word. Others know the word and try to identify the spy without revealing it.",
+  "howToPlayStepsTitle": "Steps",
+  "howToPlaySteps": [
+    "Set the number of players and duration, then start a new game.",
+    "Each player taps their card to reveal their role. One player will see 'You are the SPY'.",
+    "Players take turns saying a single word that relates to the secret word, but not too directly.",
+    "Try to sound believable if you are the spy; if you figure out the word, you can guess it and win the round. If you know the word, avoid giving it away.",
+    "When the timer ends (or earlier), discuss and vote on who you think the spy is. If time is up and the spy is not detected, the spy wins.",
+    "Vote to remove a player (requires more than 50% of votes). If the removed player was not the spy, they must keep quiet and the game continues. If the group is correct, they win—unless the spy correctly guesses the word!"
+  ]
 }
