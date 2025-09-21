@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { useT } from '../../i18n/texts';
-import { useLanguage } from '../../i18n/LanguageContext';
-import { languages } from '../../i18n/texts';
 import { useNavigate } from 'react-router-dom';
 
 // NewGame screen for Word Whiz
 const WordWhizNewGame: React.FC = () => {
   const t = useT();
-  const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
   const [teams, setTeams] = useState(2);
   const [turnDuration, setTurnDuration] = useState(60); // seconds
@@ -20,18 +17,6 @@ const WordWhizNewGame: React.FC = () => {
   return (
     <div className="flex flex-col gap-6 max-w-sm mx-auto mt-16 p-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg dark:shadow-gray-800">
       <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400">Word Whiz - {t('newGame')}</h1>
-      <label className="flex flex-col text-gray-700 dark:text-gray-200 font-medium">
-        {t('language')}:
-        <select
-          value={language}
-            onChange={e => setLanguage(e.target.value as keyof typeof languages)}
-          className="mt-2 px-3 py-2 border border-gray-300 dark:border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100"
-        >
-          {Object.keys(languages).map(lang => (
-            <option key={lang} value={lang}>{lang.toUpperCase()}</option>
-          ))}
-        </select>
-      </label>
       <label className="flex flex-col text-gray-700 dark:text-gray-200 font-medium">
         {t('teams')}
         <input
