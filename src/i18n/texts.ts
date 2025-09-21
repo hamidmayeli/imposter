@@ -10,7 +10,10 @@ export const languages = {
 
 export type LanguageKey = Exclude<keyof typeof en, 'direction'>;
 
+// Return value can be string | object depending on key
 export function useT() {
   const { language } = useLanguage();
-  return (key: LanguageKey) => languages[language][key] || key;
+  return <K extends LanguageKey>(key: K): (typeof en)[K] => {
+    return (languages[language] as typeof en)[key];
+  };
 }

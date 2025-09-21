@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useT } from '../i18n/texts';
-import { useStore } from '../storage';
-import { useLanguage } from '../i18n/LanguageContext';
-import { languages } from '../i18n/texts';
+import { useT } from '../../i18n/texts';
+import { useStore } from '../../storage';
 
 const NewGame: React.FC = () => {
   const [players, setPlayers] = useState(4);
@@ -13,7 +11,6 @@ const NewGame: React.FC = () => {
   const navigate = useNavigate();
   const t = useT();
   const { wordGroups } = useStore();
-  const { language, setLanguage } = useLanguage();
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const options = Array.from(e.target.selectedOptions).map(opt => opt.value);
@@ -21,23 +18,11 @@ const NewGame: React.FC = () => {
   };
 
   const handleStart = () => {
-    navigate('/play', { state: { players, duration, categories: selectedCategories } });
+  navigate('/imposter/play', { state: { players, duration, categories: selectedCategories } });
   };
 
   return (
     <div className="flex flex-col gap-6 max-w-sm mx-auto mt-16 p-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg dark:shadow-gray-800">
-      <label className="flex flex-col text-gray-700 dark:text-gray-200 font-medium">
-        {t('language')}:
-        <select
-          value={language}
-          onChange={e => setLanguage(e.target.value as keyof typeof languages)}
-          className="mt-2 px-3 py-2 border border-gray-300 dark:border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100"
-        >
-          {Object.keys(languages).map(lang => (
-            <option key={lang} value={lang}>{lang.toUpperCase()}</option>
-          ))}
-        </select>
-      </label>
       <label className="flex flex-col text-gray-700 dark:text-gray-200 font-medium">
         {t('players')}:
         <input

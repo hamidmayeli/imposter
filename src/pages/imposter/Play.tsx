@@ -1,9 +1,10 @@
 
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import RoundTimer from '../../components/RoundTimer';
 import { useLocation } from 'react-router-dom';
-import { useStore } from '../storage';
-import { useT } from '../i18n/texts';
+import { useStore } from '../../storage';
+import { useT } from '../../i18n/texts';
 
 function getWords(categories: string[], wordGroups: { category: string; words: string[] }[]) {
   if (!categories || categories.length === 0 || categories.includes('all')) {
@@ -25,8 +26,8 @@ function Play() {
   const [playerIndex, setPlayerIndex] = useState<number>(0);
   const [showCard, setShowCard] = useState<boolean>(false);
   const [showTimer, setShowTimer] = useState<boolean>(false);
-  const [timer, setTimer] = useState<number>(duration * 60);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [roundSeed, setRoundSeed] = useState(0); // forces timer reset when round restarts
+  const [paused, setPaused] = useState(false);
 
   // Pick a new word and spy for each round
   const startRound = () => {
@@ -42,7 +43,7 @@ function Play() {
     setPlayerIndex(0);
     setShowCard(false);
     setShowTimer(false);
-    setTimer(duration * 60);
+    setRoundSeed(s => s + 1); // trigger timer reset
   };
 
   useEffect(() => {
@@ -50,17 +51,7 @@ function Play() {
     // eslint-disable-next-line
   }, []);
 
-  // Timer logic
-  useEffect(() => {
-    if (showTimer && timer > 0) {
-      timerRef.current = setTimeout(() => setTimer(t => t - 1), 1000);
-    }
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [showTimer, timer]);
+  // When showTimer flips true we start counting down via RoundTimer
 
   // Card click handler
   const handleCardClick = () => {
@@ -101,13 +92,27 @@ function Play() {
       ) : (
         <>
           <div className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-100">{t('timer')}</div>
-          <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6">{Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}</div>
-          <button
-            onClick={handleNextRound}
-            className="px-4 py-2 bg-green-600 dark:bg-green-700 text-white font-semibold rounded hover:bg-green-700 dark:hover:bg-green-800 transition"
-          >
-            {t('nextRound')}
-          </button>
+          <RoundTimer
+            key={roundSeed} // reset when round restarts
+            durationMinutes={duration}
+            className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6"
+            paused={paused}
+            onExpire={() => { /* Could add auto-next-round logic here later */ }}
+          />
+          <div className="flex gap-4 mb-4">
+            <button
+              onClick={() => setPaused(p => !p)}
+              className="px-4 py-2 bg-yellow-500 dark:bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-600 dark:hover:bg-yellow-700 transition"
+            >
+              {paused ? t('resume') : t('pause')}
+            </button>
+            <button
+              onClick={handleNextRound}
+              className="px-4 py-2 bg-green-600 dark:bg-green-700 text-white font-semibold rounded hover:bg-green-700 dark:hover:bg-green-800 transition"
+            >
+              {t('nextRound')}
+            </button>
+          </div>
         </>
       )}
       <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">{t('wordsUsed')}: {usedWords.length} / {allWords.length}</div>
