@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useT } from '../i18n/texts';
-import { useStore } from '../storage';
-import { useLanguage } from '../i18n/LanguageContext';
-import { languages } from '../i18n/texts';
+import { useT } from '../../i18n/texts';
+import { useStore } from '../../storage';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { languages } from '../../i18n/texts';
 
 const NewGame: React.FC = () => {
   const [players, setPlayers] = useState(4);

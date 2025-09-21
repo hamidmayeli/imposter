@@ -1,10 +1,10 @@
 
 
 import { useState, useEffect } from 'react';
-import RoundTimer from '../components/RoundTimer';
+import RoundTimer from '../../components/RoundTimer';
 import { useLocation } from 'react-router-dom';
-import { useStore } from '../storage';
-import { useT } from '../i18n/texts';
+import { useStore } from '../../storage';
+import { useT } from '../../i18n/texts';
 
 function getWords(categories: string[], wordGroups: { category: string; words: string[] }[]) {
   if (!categories || categories.length === 0 || categories.includes('all')) {

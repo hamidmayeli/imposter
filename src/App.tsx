@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import NewGame from './pages/NewGame';
-import Play from './pages/Play';
-import HowToPlay from './pages/HowToPlay';
+import NewGame from './pages/imposter/NewGame';
+import Play from './pages/imposter/Play';
+import HowToPlay from './pages/imposter/HowToPlay';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { useT } from './i18n/texts';
 

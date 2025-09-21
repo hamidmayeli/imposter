@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useT } from '../i18n/texts';
+import { useT } from '../../i18n/texts';
 
 export default function HowToPlay() {
   const t = useT();
