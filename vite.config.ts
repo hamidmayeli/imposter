@@ -6,6 +6,15 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Explicitly bind to all interfaces so Dev Container / Docker port forwarding works
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: 4173,
+  },
   plugins: [
     react(),
     tailwindcss(),
