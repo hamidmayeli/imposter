@@ -21,7 +21,7 @@ const NewGame: React.FC = () => {
   };
 
   const handleStart = () => {
-    navigate('/play', { state: { players, duration, categories: selectedCategories } });
+  navigate('/imposter/play', { state: { players, duration, categories: selectedCategories } });
   };
 
   return (
