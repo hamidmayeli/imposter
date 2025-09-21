@@ -25,5 +25,7 @@
     "Vote to remove a player (requires more than 50% of votes). If the removed player was not the spy, they must keep quiet and the game continues. If the group is correct, they win—unless the spy correctly guesses the word!"
   ],
   "selectGame": "Select a Game",
-  "imposterGame": "Imposter"
+  "imposterGame": "Imposter",
+  "pause": "Pause",
+  "resume": "Resume"
 }
