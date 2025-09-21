@@ -5,15 +5,18 @@ import { useStore } from '../../storage';
 import { useT } from '../../i18n/texts';
 
 // This version reuses wordGroups as a source of random words (all categories combined)
-function collectAllWords(wordGroups: { category: string; words: string[] }[]) {
-  return wordGroups.flatMap(g => g.words);
+function getWords(categories: string[] | undefined, wordGroups: { category: string; words: string[] }[]) {
+  if (!categories || categories.length === 0 || categories.includes('all')) {
+    return wordGroups.flatMap(g => g.words);
+  }
+  return wordGroups.filter(g => categories.includes(g.category)).flatMap(g => g.words);
 }
 
 const WordWhizPlay: React.FC = () => {
   const location = useLocation();
-  const { teams = 2, turnDuration = 60, turnGap = 10 } = location.state || {};
+  const { teams = 2, turnDuration = 60, turnGap = 10, categories = [] } = location.state || {};
   const { wordGroups } = useStore();
-  const allWords = collectAllWords(wordGroups);
+  const allWords = getWords(categories, wordGroups);
   const t = useT();
 
   const [usedWords, setUsedWords] = useState<string[]>([]);

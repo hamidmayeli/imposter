@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useT } from '../../i18n/texts';
 import { useNavigate } from 'react-router-dom';
+import { useStore } from '../../storage';
 
 // NewGame screen for Word Whiz
 const WordWhizNewGame: React.FC = () => {
@@ -9,9 +10,16 @@ const WordWhizNewGame: React.FC = () => {
   const [teams, setTeams] = useState(2);
   const [turnDuration, setTurnDuration] = useState(60); // seconds
   const [turnGap, setTurnGap] = useState(10); // seconds
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const { wordGroups } = useStore();
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const options = Array.from(e.target.selectedOptions).map(opt => opt.value);
+    setSelectedCategories(options);
+  };
 
   const handleStart = () => {
-    navigate('/wordwhiz/play', { state: { teams, turnDuration, turnGap } });
+    navigate('/wordwhiz/play', { state: { teams, turnDuration, turnGap, categories: selectedCategories } });
   };
 
   return (
@@ -51,6 +59,20 @@ const WordWhizNewGame: React.FC = () => {
           onChange={e => setTurnGap(Number(e.target.value))}
           className="mt-2 px-3 py-2 border border-gray-300 dark:border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100"
         />
+      </label>
+      <label className="flex flex-col text-gray-700 dark:text-gray-200 font-medium">
+        {t('categories')}:
+        <select
+          multiple
+          value={selectedCategories}
+          onChange={handleCategoryChange}
+          className="mt-2 px-3 py-2 border border-gray-300 dark:border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100 h-40"
+        >
+          <option key='all' value='all'>{t('allCategories')}</option>
+          {wordGroups.map(group => (
+            <option key={group.category} value={group.category}>{group.category}</option>
+          ))}
+        </select>
       </label>
       <button
         onClick={handleStart}
