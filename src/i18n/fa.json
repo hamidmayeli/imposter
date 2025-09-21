@@ -26,6 +26,19 @@
   ],
   "selectGame": "انتخاب بازی",
   "imposterGame": "Imposter",
+  "wordWhizGame": "Word Whiz",
   "pause": "توقف",
-  "resume": "ادامه"
+  "resume": "ادامه",
+  "teams": "تعداد تیم‌ها:",
+  "turnDuration": "مدت هر نوبت (ثانیه):",
+  "turnGap": "فاصله بین نوبت‌ها (ثانیه):",
+  "round": "دور",
+  "readyForTeam1": "آماده برای تیم ۱",
+  "team": "تیم",
+  "skip": "رد کردن",
+  "nextTeamIn": "تیم بعدی در",
+  "secondsSuffix": "ث",
+  "prepares": "آماده می‌شود",
+  "startRound": "شروع دور",
+  "wordPoolUsed": "تعداد کلمات استفاده‌شده"
 }

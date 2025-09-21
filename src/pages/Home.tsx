@@ -12,6 +12,12 @@ export default function Home() {
       >
         {t('imposterGame')}
       </Link>
+      <Link
+        to="/wordwhiz"
+        className="px-6 py-3 rounded bg-purple-600 dark:bg-purple-700 text-white font-semibold shadow hover:bg-purple-700 dark:hover:bg-purple-800 transition"
+      >
+        {t('wordWhizGame')}
+      </Link>
     </div>
   );
 }

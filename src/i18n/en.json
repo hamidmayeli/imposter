@@ -26,6 +26,19 @@
   ],
   "selectGame": "Select a Game",
   "imposterGame": "Imposter",
+  "wordWhizGame": "Word Whiz",
   "pause": "Pause",
-  "resume": "Resume"
+  "resume": "Resume",
+  "teams": "Number of teams:",
+  "turnDuration": "Turn duration (seconds):",
+  "turnGap": "Gap between turns (seconds):",
+  "round": "Round",
+  "readyForTeam1": "Ready for Team 1",
+  "team": "Team",
+  "skip": "Skip",
+  "nextTeamIn": "Next team in",
+  "secondsSuffix": "s",
+  "prepares": "prepares",
+  "startRound": "Start Round",
+  "wordPoolUsed": "Word pool used"
 }

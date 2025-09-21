@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import NewGame from './pages/imposter/NewGame';
-import Play from './pages/imposter/Play';
+import ImposterNewGame from './pages/imposter/NewGame';
+import ImposterPlay from './pages/imposter/Play';
 import HowToPlay from './pages/imposter/HowToPlay';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { useT } from './i18n/texts';
+import WordWhizNewGame from './pages/wordWhiz/NewGame';
+import WordWhizPlay from './pages/wordWhiz/Play';
 
 
 const MenuBar: React.FC = () => {
@@ -26,8 +28,10 @@ function App() {
         <MenuBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/imposter" element={<NewGame />} />
-          <Route path="/imposter/play" element={<Play />} />
+          <Route path="/imposter" element={<ImposterNewGame />} />
+          <Route path="/imposter/play" element={<ImposterPlay />} />
+          <Route path="/wordwhiz" element={<WordWhizNewGame />} />
+          <Route path="/wordwhiz/play" element={<WordWhizPlay />} />
           <Route path="/how-to-play" element={<HowToPlay />} />
         </Routes>
       </Router>
