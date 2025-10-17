@@ -53,5 +53,8 @@
   "secondsSuffix": "ث",
   "prepares": "آماده می‌شود",
   "startRound": "شروع دور",
-  "wordPoolUsed": "تعداد کلمات استفاده‌شده"
+  "wordPoolUsed": "تعداد کلمات استفاده‌شده",
+  "imposterDescription": "یک بازی حدس و گمان اجتماعی که در آن یک بازیکن جاسوس است",
+  "wordWhizDescription": "بازی سریع حدس کلمات برای تیم‌ها",
+  "holdCtrlToSelect": "برای انتخاب چندگانه Ctrl/Cmd را نگه دارید"
 }

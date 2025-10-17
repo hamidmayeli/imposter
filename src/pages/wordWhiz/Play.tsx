@@ -116,70 +116,136 @@ const WordWhizPlay: React.FC = () => {
   // (reserved utility for future formatting needs)
 
   return (
-    <div className="max-w-md mx-auto mt-16 p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg dark:shadow-gray-800 flex flex-col items-center w-full">
-  <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">{t('wordWhizGame')}</h1>
-  <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">{t('round')} {round}</div>
-      {showWord && (
-        <div className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-100">{currentWord || '...'}</div>
-      )}
-      {!turnActive && !inGap && !showWord && (
-        <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">{t('readyForTeam1')}</div>
-      )}
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12">
+      <div className="max-w-2xl mx-auto px-4">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20 dark:border-gray-700/20 flex flex-col items-center">
+          {/* Header */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
+              {t('wordWhizGame')}
+            </h1>
+          </div>
+          
+          <div className="mb-6 px-6 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full">
+            <span className="text-sm font-bold text-purple-700 dark:text-purple-300">{t('round')} {round}</span>
+          </div>
 
-      {turnActive && (
-        <div className="flex flex-col items-center mb-4 w-full">
-          <div className="mb-2 text-lg font-semibold text-gray-800 dark:text-gray-100">{t('team')} {activeTeam}</div>
-          <RoundTimer
-            key={seed}
-            durationMinutes={turnDuration / 60}
-            paused={paused}
-            className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4"
-            onExpire={endTeamTurn}
-          />
-          <div className="flex gap-3">
+          {showWord && (
+            <div className="mb-6 p-8 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl shadow-2xl w-full max-w-md">
+              <div className="text-3xl font-bold text-white text-center">{currentWord || '...'}</div>
+            </div>
+          )}
+          
+          {!turnActive && !inGap && !showWord && (
+            <div className="mb-6 text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {t('readyForTeam1')}
+            </div>
+          )}
+
+          {turnActive && (
+            <div className="flex flex-col items-center mb-6 w-full">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg animate-pulse">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t('team')} {activeTeam}</div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 mb-6 shadow-inner">
+                <RoundTimer
+                  key={seed}
+                  durationMinutes={turnDuration / 60}
+                  paused={paused}
+                  className="text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent"
+                  onExpire={endTeamTurn}
+                />
+              </div>
+              
+              <div className="flex gap-3 flex-wrap justify-center">
+                <button
+                  onClick={() => setPaused(p => !p)}
+                  className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-bold rounded-xl hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-lg hover:shadow-yellow-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {paused ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                  </svg>
+                  {paused ? t('resume') : t('pause')}
+                </button>
+                
+                <button
+                  onClick={handleSkipTurn}
+                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg hover:shadow-orange-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {t('skip')}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {inGap && (
+            <div className="mb-6 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl border-2 border-blue-200 dark:border-blue-800">
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="text-lg font-bold text-gray-800 dark:text-gray-200">
+                  {t('nextTeamIn')} <span className="text-2xl text-blue-600 dark:text-blue-400">{gapSecondsLeft}</span>{t('secondsSuffix')}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {t('team')} {nextTeamIndex(activeTeam, teams)} {t('prepares')}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Action buttons */}
+          <div className="flex flex-wrap gap-3 mt-4 justify-center">
+            {showWord && (
+              <button
+                onClick={handleStartRound}
+                className="px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-xl hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-green-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                </svg>
+                {t('startRound')}
+              </button>
+            )}
             <button
-              onClick={() => setPaused(p => !p)}
-              className="px-3 py-2 bg-yellow-500 dark:bg-yellow-600 text-white font-semibold rounded hover:bg-yellow-600 dark:hover:bg-yellow-700 transition"
+              onClick={handleNextRound}
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg hover:shadow-purple-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
             >
-              {paused ? t('resume') : t('pause')}
-            </button>
-            <button
-              onClick={handleSkipTurn}
-              className="px-3 py-2 bg-orange-500 dark:bg-orange-600 text-white font-semibold rounded hover:bg-orange-600 dark:hover:bg-orange-700 transition"
-            >
-              {t('skip')}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              {t('nextRound')}
             </button>
           </div>
+
+          <div className="mt-8 px-6 py-3 bg-gray-100 dark:bg-gray-900 rounded-2xl">
+            <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="font-semibold">{t('wordPoolUsed')}:</span>
+              <span className="font-bold text-purple-600 dark:text-purple-400">{usedWords.length} / {allWords.length}</span>
+            </div>
+          </div>
         </div>
-      )}
-
-      {inGap && (
-        <div className="mb-4 flex flex-col items-center text-sm text-gray-600 dark:text-gray-300">
-          <div>{t('nextTeamIn')} {gapSecondsLeft}{t('secondsSuffix')}</div>
-          <div className="mt-1">({t('team')} {nextTeamIndex(activeTeam, teams)} {t('prepares')})</div>
-        </div>
-      )}
-
-      {/* Action buttons */}
-      <div className="flex flex-wrap gap-3 mt-4 justify-center">
-        {showWord && (
-          <button
-            onClick={handleStartRound}
-            className="px-4 py-2 bg-green-600 dark:bg-green-700 text-white font-semibold rounded hover:bg-green-700 dark:hover:bg-green-800 transition"
-          >
-            {t('startRound')}
-          </button>
-        )}
-        <button
-          onClick={handleNextRound}
-          className="px-4 py-2 bg-purple-600 dark:bg-purple-700 text-white font-semibold rounded hover:bg-purple-700 dark:hover:bg-purple-800 transition"
-        >
-          {t('nextRound')}
-        </button>
-      </div>
-
-      <div className="mt-8 text-xs text-gray-500 dark:text-gray-400 w-full flex flex-col items-center gap-1">
-        <div>{t('wordPoolUsed')}: {usedWords.length} / {allWords.length}</div>
       </div>
     </div>
   );

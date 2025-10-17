@@ -53,5 +53,8 @@
   "secondsSuffix": "s",
   "prepares": "prepares",
   "startRound": "Start Round",
-  "wordPoolUsed": "Word pool used"
+  "wordPoolUsed": "Word pool used",
+  "imposterDescription": "A social deduction game where one player is the spy",
+  "wordWhizDescription": "Fast-paced word guessing game for teams",
+  "holdCtrlToSelect": "Hold Ctrl/Cmd to select multiple"
 }
