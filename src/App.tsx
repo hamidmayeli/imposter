@@ -12,7 +12,7 @@ import WordWhizPlay from './pages/wordWhiz/Play';
 const MenuBar: React.FC = () => {
   const t = useT();
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
+    <nav className="sticky bottom-0 md:top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b md:border-b border-t md:border-t-0 border-gray-200/50 dark:border-gray-700/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="group flex items-center gap-2 text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-300 dark:hover:to-purple-300 transition-all">
