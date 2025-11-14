@@ -56,5 +56,7 @@
   "wordPoolUsed": "Word pool used",
   "imposterDescription": "A social deduction game where one player is the spy",
   "connectDescription": "Fast-paced word guessing game for teams",
-  "holdCtrlToSelect": "Hold Ctrl/Cmd to select multiple"
+  "holdCtrlToSelect": "Hold Ctrl/Cmd to select multiple",
+  "revealSpy": "Reveal Spy",
+  "spyWasPlayer": "The spy was Player"
 }

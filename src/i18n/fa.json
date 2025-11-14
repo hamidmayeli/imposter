@@ -56,5 +56,7 @@
   "wordPoolUsed": "تعداد کلمات استفاده‌شده",
   "imposterDescription": "یک بازی حدس و گمان اجتماعی که در آن یک بازیکن جاسوس است",
   "connectDescription": "بازی سریع حدس کلمات برای تیم‌ها",
-  "holdCtrlToSelect": "برای انتخاب چندگانه Ctrl/Cmd را نگه دارید"
+  "holdCtrlToSelect": "برای انتخاب چندگانه Ctrl/Cmd را نگه دارید",
+  "revealSpy": "نمایش جاسوس",
+  "spyWasPlayer": "جاسوس بازیکن بود"
 }

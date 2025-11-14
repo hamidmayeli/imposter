@@ -28,6 +28,7 @@ function Play() {
   const [showTimer, setShowTimer] = useState<boolean>(false);
   const [roundSeed, setRoundSeed] = useState(0); // forces timer reset when round restarts
   const [paused, setPaused] = useState(false);
+  const [spyRevealed, setSpyRevealed] = useState(false);
 
   // Pick a new word and spy for each round
   const startRound = () => {
@@ -43,6 +44,7 @@ function Play() {
     setPlayerIndex(0);
     setShowCard(false);
     setShowTimer(false);
+    setSpyRevealed(false);
     setRoundSeed(s => s + 1); // trigger timer reset
   };
 
@@ -150,6 +152,17 @@ function Play() {
                 </button>
                 
                 <button
+                  onClick={() => setSpyRevealed(true)}
+                  className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-xl hover:from-red-600 hover:to-red-700 transition-all shadow-lg hover:shadow-red-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  {t('revealSpy')}
+                </button>
+                
+                <button
                   onClick={handleNextRound}
                   className="px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-xl hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-green-500/50 hover:scale-105 active:scale-95 flex items-center gap-2"
                 >
@@ -159,6 +172,16 @@ function Play() {
                   {t('nextRound')}
                 </button>
               </div>
+              
+              {spyRevealed && (
+                <div className="mb-4 px-6 py-4 bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/30 dark:to-pink-900/30 rounded-2xl border-2 border-red-300 dark:border-red-700 shadow-lg">
+                  <div className="text-center">
+                    <p className="text-lg font-bold text-red-700 dark:text-red-300">
+                      {t('spyWasPlayer')} {spyPlayer}
+                    </p>
+                  </div>
+                </div>
+              )}
             </>
           )}
           
