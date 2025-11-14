@@ -3,8 +3,8 @@ import { useT } from '../../i18n/texts';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../storage';
 
-// NewGame screen for Word Whiz
-const WordWhizNewGame: React.FC = () => {
+// NewGame screen for Connect
+const ConnectNewGame: React.FC = () => {
   const t = useT();
   const navigate = useNavigate();
   const [teams, setTeams] = useState(2);
@@ -19,7 +19,7 @@ const WordWhizNewGame: React.FC = () => {
   };
 
   const handleStart = () => {
-    navigate('/wordwhiz/play', { state: { teams, turnDuration, turnGap, categories: selectedCategories } });
+    navigate('/connect/play', { state: { teams, turnDuration, turnGap, categories: selectedCategories } });
   };
 
   return (
@@ -34,7 +34,7 @@ const WordWhizNewGame: React.FC = () => {
               </svg>
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
-              Word Whiz - {t('newGame')}
+              Connect - {t('newGame')}
             </h1>
           </div>
 
@@ -131,4 +131,4 @@ const WordWhizNewGame: React.FC = () => {
   );
 };
 
-export default WordWhizNewGame;
+export default ConnectNewGame;

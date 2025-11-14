@@ -13,7 +13,7 @@ export default function HowToPlay() {
   
   const gameColors = {
     Imposter: 'blue',
-    WordWhiz: 'purple'
+    Connect: 'purple'
   } as Record<string, string>;
   
   const currentColor = game ? gameColors[game] || 'blue' : 'blue';

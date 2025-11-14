@@ -12,7 +12,7 @@ function getWords(categories: string[] | undefined, wordGroups: { category: stri
   return wordGroups.filter(g => categories.includes(g.category)).flatMap(g => g.words);
 }
 
-const WordWhizPlay: React.FC = () => {
+const ConnectPlay: React.FC = () => {
   const location = useLocation();
   const { teams = 2, turnDuration = 60, turnGap = 10, categories = [] } = location.state || {};
   const { wordGroups } = useStore();
@@ -127,7 +127,7 @@ const WordWhizPlay: React.FC = () => {
               </svg>
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
-              {t('wordWhizGame')}
+              {t('connectGame')}
             </h1>
           </div>
           
@@ -251,4 +251,4 @@ const WordWhizPlay: React.FC = () => {
   );
 };
 
-export default WordWhizPlay;
+export default ConnectPlay;

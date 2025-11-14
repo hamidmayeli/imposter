@@ -16,7 +16,7 @@
   "howToPlay": "How to Play",
   "howToPlayIntro": {
     "Imposter": "Imposter is a social deduction game. One player is the spy without knowing the common word. Others know the word and try to identify the spy without revealing it.",
-    "WordWhiz": "Word Whiz is a fast turn-based word association challenge. Teams race against the clock to describe and guess words while managing minimum turns."
+    "Connect": "Connect is a fast turn-based word association challenge. Teams race against the clock to describe and guess words while managing minimum turns."
   },
   "howToPlayStepsTitle": "Steps",
   "howToPlaySteps": {
@@ -28,7 +28,7 @@
       "When the timer ends (or earlier), discuss and vote on who you think the spy is. If time is up and the spy is not detected, the spy wins.",
       "Vote to remove a player (requires more than 50% of votes). If the removed player was not the spy, they must keep quiet and the game continues. If the group is correct, they win—unless the spy correctly guesses the word!"
     ],
-    "WordWhiz": [
+    "Connect": [
       "Set the number of teams and duration, then start a new game.",
       "A unique word will be shown to all team leaders at the start of each round.",
       "While the timer is started, the round starts, and first team leader gives a clue to their team to guess the word. The clue must be a single word and cannot be a direct synonym or part of the word.",
@@ -39,7 +39,7 @@
   },
   "selectGame": "Select a Game",
   "imposterGame": "Imposter",
-  "wordWhizGame": "Word Whiz",
+  "connectGame": "Connect",
   "pause": "Pause",
   "resume": "Resume",
   "teams": "Number of teams:",
@@ -55,6 +55,6 @@
   "startRound": "Start Round",
   "wordPoolUsed": "Word pool used",
   "imposterDescription": "A social deduction game where one player is the spy",
-  "wordWhizDescription": "Fast-paced word guessing game for teams",
+  "connectDescription": "Fast-paced word guessing game for teams",
   "holdCtrlToSelect": "Hold Ctrl/Cmd to select multiple"
 }

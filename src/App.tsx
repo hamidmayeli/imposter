@@ -5,8 +5,8 @@ import ImposterPlay from './pages/imposter/Play';
 import HowToPlay from './pages/HowToPlay';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { useT } from './i18n/texts';
-import WordWhizNewGame from './pages/wordWhiz/NewGame';
-import WordWhizPlay from './pages/wordWhiz/Play';
+import ConnectNewGame from './pages/connect/NewGame';
+import ConnectPlay from './pages/connect/Play';
 
 
 const MenuBar: React.FC = () => {
@@ -36,8 +36,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/imposter" element={<ImposterNewGame />} />
           <Route path="/imposter/play" element={<ImposterPlay />} />
-          <Route path="/wordwhiz" element={<WordWhizNewGame />} />
-          <Route path="/wordwhiz/play" element={<WordWhizPlay />} />
+          <Route path="/connect" element={<ConnectNewGame />} />
+          <Route path="/connect/play" element={<ConnectPlay />} />
           <Route path="/how-to-play/:game" element={<HowToPlay />} />
         </Routes>
       </Router>
